@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
         });
 
     } catch (error) {
-        console.log('Registeration error:', error);
+        console.error('Registeration error:', error);
         res.status(500).json({error: 'Something went wrong'});
     }
 
@@ -98,7 +98,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (error) {
-        console.log('Login error:', error);
+        console.error('Login error:', error);
         res.status(500).json({error: 'Something went wrong'});
     }
 
