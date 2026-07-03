@@ -41,4 +41,6 @@ model Application {
   userId String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   // Relation: Each Application belongs to one User
+
+  @@index([userId]) // for faster queries
 }
