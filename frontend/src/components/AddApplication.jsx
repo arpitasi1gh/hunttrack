@@ -1,7 +1,10 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function AddApplication() {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+
   const [companyName, setCompanyName] = useState('');
   const [position, setPosition] = useState('');
   const [status, setStatus] = useState('Applied');
@@ -59,7 +62,7 @@ function AddApplication() {
         <div className="max-w-4xl mx-auto mt-10 p-6">
             <h1 className="text-2xl font-bold text-gray-800 mb-6">Add New Application</h1>
             <form className="space-y-4" onSubmit={handleSubmit}>
-                  <div className="mt-4">
+                <div className="mt-4">
                   <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name</label>
                   <input type="text" placeholder="E.g., Google" className="w-full border border-gray-300 rounded px-3 py-2 mt-1" id="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)}/>
                 </div>
@@ -98,7 +101,7 @@ function AddApplication() {
                 </div>
                 <div className="mt-4">
                   <label htmlFor="notes" className="block text-sm font-medium text-gray-700">Notes</label>
-                  <textarea placeholder="Any extra notes..." className="w-full border border-gray-300 rounded px-3 py-2 mt-1" id="notes" rows="3" value={notes} onChange={(e) => setNotes(e.target.value)}/>
+                  <textarea placeholder="Any extra notes..." className="w-full border border-gray-300 rounded min-h-11 px-3 py-2 mt-1" id="notes" rows="3" value={notes} onChange={(e) => setNotes(e.target.value)}/>
                 </div>
                 <button type="submit" className="w-full mt-6 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition disabled:opacity-50" disabled={loading}>{loading ? 'Creating application...' : "Create Application"}</button>
             </form>

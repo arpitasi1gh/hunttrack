@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react';
+import { useSelector } from 'react-redux';
 
 function EditApplication({application, onCancel, onUpdate}) {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  
   const [companyName, setCompanyName] = useState('');
   const [position, setPosition] = useState('');
   const [status, setStatus] = useState('Applied');
@@ -57,8 +60,10 @@ function EditApplication({application, onCancel, onUpdate}) {
       }
 
       alert('Application updated successfully!');
+
       if (onUpdate) onUpdate();
       if (onCancel) onCancel();
+
       const navigate = useNavigate();
       navigate("/");
 
@@ -113,7 +118,7 @@ function EditApplication({application, onCancel, onUpdate}) {
                 </div>
                 <div className="mt-4">
                   <label htmlFor="notes" className="block text-sm font-medium text-gray-700">Notes</label>
-                  <textarea placeholder="Any extra notes..." className="w-full border border-gray-300 rounded px-3 py-2 mt-1" id="notes" rows="3" value={notes} onChange={(e) => setNotes(e.target.value)}/>
+                  <textarea placeholder="Any extra notes..." className="w-full border border-gray-300 rounded min-h-11 px-3 py-2 mt-1" id="notes" rows="3" value={notes} onChange={(e) => setNotes(e.target.value)}/>
                 </div>
                 <button type="submit" className="w-full mt-6 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition disabled:opacity-50" disabled={loading}>{loading ? 'Editing application...' : "Update Application"}</button>
             </form>
