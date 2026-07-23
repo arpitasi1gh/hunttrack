@@ -12,7 +12,7 @@ function Navbar() {
     };
 
     return (
-        <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 px-4 sm:px-6 lg:px-8">
+        <nav className="bg-white dark:bg-gray-900 shadow-md dark:shadow-2xl border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto flex justify-between items-center h-16">
 
                 <span className="text-xl font-bold text-blue-600 dark:text-blue-400 cursor-pointer">HuntTrack</span>
@@ -22,7 +22,7 @@ function Navbar() {
                     <button className={`px-4 py-1.5 rounded-md text-sm font-medium transition cursor-pointer ${mode==='track' ? 'bg-blue-600 text-white shadow-sm cursor-default' : 'text-gray-600 hover:text-blue-600 hover:scale-105'}`} onClick={() => setMode("track")}>Track</button>
                 </div>
 
-                <button className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-xl cursor-pointer py-1 px-2 rounded-md hover:shadow-sm" aria-label="Toggle dark mode" onClick={toggleDarkMode}>{isDarkMode ? "☀️" : "🌙"}</button>
+                <button className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-xl cursor-pointer py-1 px-2 rounded-md hover:shadow-sm dark:hover:shadow-gray-700" aria-label="Toggle dark mode" onClick={toggleDarkMode}>{isDarkMode ? "☀️" : "🌙"}</button>
 
             </div>
         </nav>
