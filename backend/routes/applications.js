@@ -66,6 +66,11 @@ router.put('/:id', verifyToken, async (req, res) => {
     const {id} = req.params;
     const {companyName, position, status, applicationDate, salary, nextAction, website, contactName, notes} = req.body;
 
+    // Validate required fields
+    if (!companyName || !position || !status) {
+        return res.status(400).json({error: 'Company name, position, and status are required fields.'});
+    }
+
     try {
         // Check if the application exists and belongs to the logged-in user
         const existing = await prisma.application.findFirst({
@@ -124,6 +129,27 @@ router.delete('/:id', verifyToken, async (req, res) => {
 
     } catch (error) {
         console.error('Delete application error:', error);
+        res.status(500).json({error: 'Something went wrong'});
+    }
+});
+
+// (GET) Fetch / Read a specific application by its id
+router.get('/:id', verifyToken, async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const application = await prisma.application.findFirst({
+            where: {id, userId: req.user.userId},
+        })
+
+        if (!application) {
+            return res.status(404).json({error: 'Application not found'});
+        }
+
+        res.json(application);
+
+    } catch (error) {
+        console.error('Get an application error:', error);
         res.status(500).json({error: 'Something went wrong'});
     }
 });
