@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(helmet());
 
 // Allowing access to only specific origins
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+const allowedOrigins = ['https://hunttrack-five.vercel.app', 'http://localhost:5173', 'http://localhost:3000'];
 app.use(cors({
   origin: function (origin, callback) {
     // Allowing requests with no origin (like mobile apps or curl requests)
