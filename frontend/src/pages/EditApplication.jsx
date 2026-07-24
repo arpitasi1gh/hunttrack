@@ -28,7 +28,7 @@ function EditApplication() {
 
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`/api/v1/applications/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -70,7 +70,7 @@ function EditApplication() {
 
     try {
 
-      const response = await fetch(`/api/v1/applications/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

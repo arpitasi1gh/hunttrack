@@ -25,7 +25,7 @@ const Dashboard = () => {
     }
 
     try {
-      const response = await fetch('/api/v1/applications', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications`, {
         headers: {
             'Authorization': `Bearer ${token}`,
         },
@@ -61,7 +61,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch(`/api/v1/applications/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

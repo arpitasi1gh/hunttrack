@@ -26,7 +26,7 @@ function AddApplication() {
     setError('');
 
     try {
-      const response = await fetch('/api/v1/applications', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/applications`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

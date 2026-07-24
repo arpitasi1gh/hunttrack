@@ -15,8 +15,10 @@ const UserMenu = () => {
     const initial = userEmail.charAt(0).toUpperCase();
 
     const handleLogout = () => {
+        if (!window.confirm('Are you sure you want to log out?')) return;
         dispatch(logout());
-        navigate('/login');
+        setIsOpen(false);
+        navigate('/login', { replace: true });
     };
 
     useEffect(() => {
