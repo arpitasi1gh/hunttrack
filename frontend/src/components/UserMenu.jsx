@@ -30,9 +30,9 @@ const UserMenu = () => {
     }, []);
 
     return (
-        <div className="relative">
+        <div ref={menuRef} className="relative">
             <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">
-                <button ref={menuRef} onClick={() => setIsOpen(!isOpen)} className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold hover:bg-blue-700 dark:hover:bg-blue-500 transition">{initial}</button>
+                <button onClick={() => setIsOpen(!isOpen)} className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold hover:bg-blue-700 dark:hover:bg-blue-500 transition">{initial}</button>
             </div>
             {isOpen && (
                 <div className="absolute right-0 mt-2 w-52 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-lg border border-gray-200/50 dark:border-gray-800/60 shadow-xl z-50">

@@ -1,10 +1,11 @@
 import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {login} from '../redux/authSlice';
 
 function Login() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
     const [email, setEmail] = useState('');
@@ -33,10 +34,9 @@ function Login() {
             }
             
             dispatch(login({token: data.token, user: data.user}));
-            // localStorage.setItem('token', data.token);
 
             alert('Login successful! Redirecting to dashboard...');
-            window.location.href = "/";
+            navigate('/');
 
         } catch (error) {
             setError(error.message);

@@ -8,6 +8,7 @@ function Navbar() {
     
     const isDarkMode = useSelector((state) => state.theme.isDarkMode);
     const dispatch = useDispatch();
+    
     const toggleDarkMode = () => {
         dispatch(toggleTheme());
     };

@@ -1,5 +1,6 @@
-import './App.css';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import './App.css';
 
 import './index.css';
 import Login from './pages/Login.jsx';
@@ -9,7 +10,7 @@ import AddApplication from './pages/AddApplication.jsx';
 import EditApplication from './pages/EditApplication.jsx';
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem('token');
+  const isAuthenticated = useSelector((state) => Boolean(state.auth.token));
 
   return (
     <BrowserRouter>

@@ -1,9 +1,10 @@
 import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Signup() {
     const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,7 +32,7 @@ function Signup() {
             }
 
             alert('Signup successful! Please login.');
-            window.location.href = "/login";    
+            navigate("/"); 
 
         } catch (error) {
             setError(error.message);
