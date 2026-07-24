@@ -2,11 +2,11 @@ import './App.css';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
 import './index.css';
-import Login from './components/Login.jsx';
-import Dashboard from './components/Dashboard.jsx';
-import Signup from './components/Signup.jsx';
-import AddApplication from './components/AddApplication.jsx';
-import EditApplication from './components/EditApplication.jsx';
+import Login from './pages/Login.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import Signup from './pages/Signup.jsx';
+import AddApplication from './pages/AddApplication.jsx';
+import EditApplication from './pages/EditApplication.jsx';
 
 function App() {
   const isAuthenticated = !!localStorage.getItem('token');

@@ -32,7 +32,7 @@ function Login() {
                 throw new Error(data.error || 'Login failed');
             }
             
-            dispatch(login(data.token));
+            dispatch(login({token: data.token, user: data.user}));
             // localStorage.setItem('token', data.token);
 
             alert('Login successful! Redirecting to dashboard...');

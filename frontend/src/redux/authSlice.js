@@ -7,8 +7,10 @@ const authSlice = createSlice({
     },
     reducers: {
         login: (state, action) => {
-            state.token = action.payload;
-            localStorage.setItem('token', action.payload);
+            state.token = action.payload.token;
+            state.user = action.payload.user;
+            localStorage.setItem('token', action.payload.token);
+            localStorage.setItem('userEmail', action.payload.user.email);
         },
         logout: (state) => {
             state.token = null;

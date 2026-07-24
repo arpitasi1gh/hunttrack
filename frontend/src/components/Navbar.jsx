@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/themeSlice';
+import UserMenu from './UserMenu';
 
 function Navbar() {
     const [mode, setMode] = useState('track');
@@ -22,7 +23,10 @@ function Navbar() {
                     <button className={`px-4 py-1.5 rounded-md text-sm font-medium transition cursor-pointer ${mode==='track' ? 'bg-blue-600 text-white shadow-sm cursor-default' : 'text-gray-600 hover:text-blue-600 hover:scale-105'}`} onClick={() => setMode("track")}>Track</button>
                 </div>
 
-                <button className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-xl cursor-pointer py-1 px-2 rounded-md hover:shadow-sm dark:hover:shadow-gray-700" aria-label="Toggle dark mode" onClick={toggleDarkMode}>{isDarkMode ? "☀️" : "🌙"}</button>
+                <div className="flex items-center gap-4">
+                    <button className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-xl cursor-pointer py-1 px-2 rounded-md hover:shadow-sm dark:hover:shadow-gray-700" aria-label="Toggle dark mode" onClick={toggleDarkMode}>{isDarkMode ? "☀️" : "🌙"}</button>
+                    <UserMenu/>
+                </div>
 
             </div>
         </nav>
